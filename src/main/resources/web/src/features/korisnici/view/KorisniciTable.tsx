@@ -1,13 +1,16 @@
-import { Card, Table } from "antd";
+import { Button, Table } from "antd";
 import { ColumnsType } from "antd/es/table";
-import { Korisnik } from "../../../types/types";
 import { EmptyDataTable } from "../../../helpers/EmptyDataTable";
+import { Korisnik } from "../../../types/types";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     data: Korisnik[];
 }
 
-export const KorisniciTable = ({ data }: Props) => {
+export const KorisniciTable = ({ data}: Props) => {
+
+    const navigate = useNavigate();
 
     const columns: ColumnsType<Korisnik> = [
         {
@@ -35,18 +38,26 @@ export const KorisniciTable = ({ data }: Props) => {
             dataIndex: 'status',
             key: 'status',
         },
+        {
+            title: 'Detalji',
+            render: (_: any, record: any) =>  (
+                <Button onClick={() =>
+                    navigate(`/korisnici/detalji/${record.korisnikId}`, {
+                        state: {korisnikId: record.korisnikId}
+                    })
+                }>Detalji</Button>
+            )
+        },
     ];
 
 
     return (
-        <Card title="Upravljanje korisnicima" bordered={false}>
-            {!Array.isArray(data) || data.length === 0 ? (
-                <EmptyDataTable />
+        !Array.isArray(data) || data.length === 0 ? (
+            <EmptyDataTable />
+        )
+            : (
+                <Table dataSource={data} columns={columns} />
             )
-                : (
-                    <Table dataSource={data} columns={columns}/>
-                )
-            }
-        </Card>
+                
     )
 }

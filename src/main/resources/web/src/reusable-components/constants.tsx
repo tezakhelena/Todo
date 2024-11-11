@@ -11,4 +11,6 @@ export const ZADACI_POST = API + "/zadaci"; //za dohvat liste zadataka
 export const ZADATAK_GET = ZADACI_POST + "/"; // za dohvat zadataka prema id, poslati request
 export const DODAJ_ZADATAK_POST = ZADACI_POST + "/dodaj"; //za dodavanje novog zadatka
 export const AZURIRAJ_ZADATAK_POST = ZADACI_POST + "/azuriraj"; //za azuriranje zadatka
-export const BRISANJE_ZADATKA_GET = ZADACI_POST + "/brisanje/"; //za brisanje zadatka
+export const BRISANJE_ZADATKA_DELETE = ZADACI_POST + "/brisanje/"; //za brisanje zadatka
+
+//dodati endpoint za mijenjanje statusa

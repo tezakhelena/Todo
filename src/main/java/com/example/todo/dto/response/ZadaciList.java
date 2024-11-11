@@ -14,4 +14,5 @@ public interface ZadaciList {
     Integer getDostupnost();
     String getStatus();
     Long getidStatusa();
+    LocalDate getRokZadatka();
 }

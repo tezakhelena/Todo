@@ -1,5 +1,6 @@
 package com.example.todo.repository;
 import com.example.todo.dto.response.KorisniciList;
+import com.example.todo.dto.response.ZadaciList;
 import com.example.todo.model.Korisnici;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,9 +29,9 @@ public interface KorisniciRepository extends JpaRepository<Korisnici, Long> {
             "    uloga u ON k.uloga_id = u.uloga_id " +
             "LEFT JOIN statusi s ON k.status_id = s.status_id" +
             "    WHERE " +
-            "    (CAST(:ime AS TEXT) IS NULL OR k.ime = CAST(:ime AS TEXT)) " +
-            "    AND (CAST(:prezime AS TEXT) IS NULL OR k.prezime = CAST(:prezime AS TEXT)) " +
-            "    AND (CAST(:korisnickoIme AS TEXT) IS NULL OR k.korisnicko_ime = CAST(:korisnickoIme AS TEXT)) " +
+            "    (CAST(:ime AS TEXT) IS NULL OR UPPER(k.ime) LIKE UPPER('%' || CAST(:ime AS TEXT) || '%')) " +
+            "    AND (CAST(:prezime AS TEXT) IS NULL OR UPPER(k.prezime) LIKE UPPER('%' || CAST(:prezime AS TEXT) || '%')) " +
+            "    AND (CAST(:korisnickoIme AS TEXT) IS NULL OR UPPER(k.korisnicko_ime) LIKE UPPER ('%' || CAST(:korisnickoIme AS TEXT) || '%')) " +
             "    AND (:idStatusa IS NULL OR k.status_id = :idStatusa) " +
             "    AND (:idUloge IS NULL OR k.uloga_id = :idUloge);",
             nativeQuery = true)

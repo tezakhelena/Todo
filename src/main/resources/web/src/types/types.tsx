@@ -1,17 +1,26 @@
 export interface Korisnik {
-  id: number;
+  korisnikId: number;
   ime: string;
   prezime: string;
-  datumRodjenja: string;
-  email: string;
-  status: boolean; //true ako je korisnik aktivan, false ako je blokiran
+  statusId: number;
+  korisnickoIme: string;
+  dUloge: number;
+}
+
+export interface DetaljiKorisnikaResponse {
+  korisnikId: number;
+  ime: string;
+  prezime: string;
+  korisnickoIme: string;
+  idUloge: number;
+  statusId: number;
+  zadaciKorisnika: Zadatak[];
 }
 
 export interface Zadatak{
     zadatakId: number;
     naziv: string;
     opis: string;
-    datumKreiranja: number;
     korisnikId: number;
     korisnickoIme: string;
     nazivPrioriteta: string;
@@ -22,6 +31,18 @@ export interface Zadatak{
 }
 
 export interface SelectOption { //za filtere sa select poljem
-  label: string | number;
+  label: string;
   value: string | number;
+}
+
+export interface DetaljiZadatkaResponse {
+  zadatakId: number;
+  naziv: string;
+  opis: string;
+  korisnikId: number;
+  korisnickoIme: string;
+  prioritetId: number;
+  statusId: number;
+  dostupnost: number;
+  rokZadatka: string;
 }

@@ -18,7 +18,8 @@ public class Korisnici implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long korisnik_id;
+    @Column(name = "korisnik_id")
+    private Long korisnikId;
 
     private String ime;
     private String prezime;

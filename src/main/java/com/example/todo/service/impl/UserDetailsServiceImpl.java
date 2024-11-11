@@ -22,6 +22,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(korisnik.getStatus_id() == 9){
             throw new Error("Pričekajte da Vas admin odobri.");
         }
+        if(korisnik.getStatus_id() == 2) {
+            throw new Error("Vaš račun je blokiran.");
+        }
         return korisnik; // Return the Korisnici instance which implements UserDetails
     }
 }

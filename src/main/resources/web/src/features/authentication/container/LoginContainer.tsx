@@ -15,7 +15,7 @@ export const LoginContainer = () => {
             const formData = form.getFieldsValue();
             await AuthenticationService.login(formData).then((res) => {
                 const token = res.data.token;
-                dispatch(login({token: token,  korisnickoime: res.data.korisnickoIme}));
+                dispatch(login({token: token,  korisnickoime: res.data.korisnickoIme, korisnikId: res.data.korisnikId, ulogaId: res.data.ulogaId}));
                 navigate('/');
             })
         } catch (error: any) {
