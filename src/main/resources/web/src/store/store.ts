@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import korisniciReducer from './slices/korisniciSlice'
 import filteriReducer from './slices/filteriSlice'
 import authReducer from './slices/authSlice'
 import { persistReducer } from 'redux-persist';
@@ -12,7 +11,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-    korisnici: korisniciReducer,
     filteri: filteriReducer,
     auth: authReducer
 });

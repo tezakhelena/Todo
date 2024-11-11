@@ -1,8 +1,8 @@
-import { Button, Table } from "antd";
+import { Table } from "antd";
 import { ColumnsType } from "antd/es/table";
+import { useNavigate } from "react-router-dom";
 import { EmptyDataTable } from "../../../helpers/EmptyDataTable";
 import { Korisnik } from "../../../types/types";
-import { useNavigate } from "react-router-dom";
 
 interface Props {
     data: Korisnik[];
@@ -37,17 +37,7 @@ export const KorisniciTable = ({ data}: Props) => {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
-        },
-        {
-            title: 'Detalji',
-            render: (_: any, record: any) =>  (
-                <Button onClick={() =>
-                    navigate(`/korisnici/detalji/${record.korisnikId}`, {
-                        state: {korisnikId: record.korisnikId}
-                    })
-                }>Detalji</Button>
-            )
-        },
+        }
     ];
 
 

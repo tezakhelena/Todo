@@ -20,15 +20,9 @@ const filterSlice = createSlice({
         ...state.korisniciTableFilter,
         ...action.payload
       };
-    },
-    setFilterZadaci: (state, action: PayloadAction<Partial<FilterKorisnikaRequest>>) => {
-      state.zadaciTableFilter = {
-        ...state.zadaciTableFilter,
-        ...action.payload
-      };
     }
   },
 });
 
-export const { setFilterKorisnici, setFilterZadaci } = filterSlice.actions;
+export const { setFilterKorisnici } = filterSlice.actions;
 export default filterSlice.reducer;
