@@ -31,10 +31,16 @@ const KorisniciContainer = () => {
         refetch();
     }
 
+    const resetFields = () => {
+        form.resetFields();
+        const formData = form.getFieldsValue();
+        fetchKorisnici(formData);
+        refetch();
+    }
 
     return (
         <Card title="Upravljanje korisnicima" bordered={false}>
-            <KorisniciFilter form={form} onFinish={onFinish}/>
+            <KorisniciFilter form={form} onFinish={onFinish} resetFields={resetFields}/>
             <KorisniciTable data={data} />
         </Card>
     )

@@ -8,7 +8,7 @@ export interface Korisnik {
 }
 
 export interface DetaljiKorisnikaResponse {
-  korisnikId: number;
+  idKorisnika: number;
   ime: string;
   prezime: string;
   korisnickoIme: string;

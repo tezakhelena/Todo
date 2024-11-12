@@ -4,11 +4,12 @@ import { statusiKorisnika, uloge } from "../../../types/values";
 interface Props {
     form: FormInstance<any>;
     onFinish?: () => void;
+    resetFields?: () => void;
 }
 
-export const KorisniciFilter = ({ form, onFinish }: Props) => {
+export const KorisniciFilter = ({ form, onFinish, resetFields }: Props) => {
     return (
-        <Form form={form} onFinish={onFinish}>
+        <Form form={form} onFinish={onFinish} onReset={resetFields}>
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 <Col span={6}>
                     <Form.Item name="ime">
@@ -36,7 +37,8 @@ export const KorisniciFilter = ({ form, onFinish }: Props) => {
                     </Form.Item>
                 </Col>
                 <Col span={6}>
-                    <Button htmlType="submit">Pretraži</Button>
+                    <Button type="primary" htmlType="submit">Pretraži</Button>
+                    <Button type="primary" danger style={{ marginLeft: '15px' }} htmlType="reset">Obriši</Button>
                 </Col>
             </Row>
         </Form>
