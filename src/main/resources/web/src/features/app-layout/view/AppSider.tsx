@@ -3,8 +3,12 @@ import { Menu } from "antd";
 import { memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 import style from '../style/AppLayout.module.css';
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import UlogaEnum from "../../../reusable-components/enums/UlogaEnum";
 
 export const AppSider = memo(() => {
+    const auth = useSelector((state: RootState) => state.auth);
 
     const naslovnica = useMemo(() => {
         return(
@@ -51,7 +55,7 @@ export const AppSider = memo(() => {
     return(
         <Menu mode="horizontal" defaultSelectedKeys={["1"]} className={style.sider}>
             {naslovnica}
-            {korisnici}
+            {auth.ulogaId === UlogaEnum.ADMINISTRATOR ? korisnici : undefined}
             {zadaci}
         </Menu>
     )

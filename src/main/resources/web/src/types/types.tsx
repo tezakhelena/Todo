@@ -18,16 +18,18 @@ export interface DetaljiKorisnikaResponse {
 }
 
 export interface Zadatak{
-    zadatakId: number;
-    naziv: string;
-    opis: string;
-    korisnikId: number;
-    korisnickoIme: string;
-    nazivPrioriteta: string;
-    idPrioriteta: string;
-    dostupnost: number;
-    status: string;
-    idStatusa: number;
+  datumKreiranja: string;
+  dostupnost: number;
+  idPrioriteta: number;
+  idStatusa: number;
+  korisnickoIme: string;
+  korisnikId: number;
+  naziv: string;
+  nazivPrioriteta: string;
+  opis: string;
+  rokZadatka: string;
+  status: string;
+  zadatakId: number;
 }
 
 export interface SelectOption { //za filtere sa select poljem
